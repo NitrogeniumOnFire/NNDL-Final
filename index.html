@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Car Price Predictor</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1><i class="fas fa-car"></i> Car Price Predictor</h1>
+    <p>Static GitHub Pages app — model predictions precomputed.</p>
+  </header>
+  <main>
+    <form id="predict-form" onsubmit="return false;">
+      <div class="grid">
+        <div class="form-group">
+          <label for="Manufacturer"><i class="fas fa-industry"></i> Manufacturer</label>
+          <select id="Manufacturer" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label for="Model"><i class="fas fa-car-side"></i> Model</label>
+          <select id="Model" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label for="Production_Year"><i class="fas fa-calendar-alt"></i> Production Year</label>
+          <select id="Production_Year" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label for="Category"><i class="fas fa-tags"></i> Category</label>
+          <select id="Category" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label for="Leather_Interior"><i class="fas fa-couch"></i> Leather Interior</label>
+          <div class="switch-container">
+            <label class="switch">
+              <input type="checkbox" id="Leather_Interior">
+              <span class="slider"></span>
+            </label>
+            <span class="switch-label" id="leather-label">No</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Fuel_Type"><i class="fas fa-gas-pump"></i> Fuel Type</label>
+          <select id="Fuel_Type" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label for="Engine_Volume"><i class="fas fa-tachometer-alt"></i> Engine Volume (L)</label>
+          <input id="Engine_Volume" type="number" step="0.1" min="0.5" max="8.0" value="2.0" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="Mileage"><i class="fas fa-road"></i> Mileage (km)</label>
+          <input id="Mileage" type="number" step="1000" min="0" max="500000" value="50000" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="Gearbox_Type"><i class="fas fa-cogs"></i> Gearbox Type</label>
+          <select id="Gearbox_Type" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label for="Drive_Wheels"><i class="fas fa-tire"></i> Drive Wheels</label>
+          <select id="Drive_Wheels" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label for="Doors"><i class="fas fa-door-closed"></i> Doors</label>
+          <select id="Doors" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label for="Wheel"><i class="fas fa-steering-wheel"></i> Wheel Position</label>
+          <select id="Wheel" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label for="Airbags"><i class="fas fa-shield-alt"></i> Airbags</label>
+          <select id="Airbags" class="form-control"></select>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="predict-btn" class="btn btn-primary">
+          <i class="fas fa-calculator"></i> Predict Price
+        </button>
+        <button id="reset-btn" type="button" class="btn btn-secondary">
+          <i class="fas fa-redo"></i> Reset
+        </button>
+      </div>
+    </form>
+    <section id="result" class="result">
+      <h2><i class="fas fa-chart-line"></i> Predicted Price</h2>
+      <div id="price" class="price-display">—</div>
+      <p id="explain" class="explanation"></p>
+      <div class="details">
+        <p><i class="fas fa-info-circle"></i> This prediction is based on the nearest matching car in our dataset.</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p><i class="fas fa-code"></i> App generated automatically. Upload these files to GitHub Pages (branch gh-pages or docs/).</p>
+    <p class="stats" id="stats"></p>
+  </footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
